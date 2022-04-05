@@ -1,14 +1,24 @@
+:root{
+    --primary: #1e6e79;
+    --secondary: #0e2544;
+}
 body {
-    background-color: rgb(42, 133, 66);
-    
+    background-color: var(--primary);
+    padding: 0;
+    margin: 0;  
 }
 
-#title {
+header {
     text-align: center;
+    background-color: var(--secondary);
+    color: white;
 }
 
 #timer {
     text-align: right;
+}
+
+main > form {
+    text-align: center;
     
-     
 }
