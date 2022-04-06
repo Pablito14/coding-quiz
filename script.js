@@ -11,13 +11,14 @@ var q4 = "what is interconnected data called?";
 var a4 = "object"
 
 var q5 = "how would you control logic flow?";
-var a5 = "if else statement"
+var a5 = "if/else statement"
 
 var questions = [q1, q2, q3, q4, q5];
-var answers = [a1, a2, a3, a4, a5]
+var answers = [a1, a2, a3, a4, a5];
 
 var startBtn = document.querySelector("#startBtn");
 var mainDiv = document.querySelector("#mainDiv");
+var timerEl = document.querySelector("#timer");
 
 startBtn.addEventListener("click", startBtnHandler);
 
@@ -29,4 +30,33 @@ function startBtnHandler(){
         question.textContent = questions[i];
         mainDiv.appendChild(question);
     }
+
+    countdown();
+    startBtn.remove();
 }
+
+function countdown() {
+    var timeLeft = 60;
+  
+    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    var timeInterval = setInterval(function () {
+      // As long as the `timeLeft` is greater than 1
+      if (timeLeft > 1) {
+        // Set the `textContent` of `timerEl` to show the remaining seconds
+        timerEl.textContent = "Time: " + timeLeft;
+        // Decrement `timeLeft` by 1
+        timeLeft--;
+      } else if (timeLeft === 1) {
+        // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
+        timerEl.textContent = timeLeft + ' second remaining';
+        timeLeft--;
+      } else {
+        // Once `timeLeft` gets to 0, set `timerEl` to an empty string
+        timerEl.textContent = '';
+        // Use `clearInterval()` to stop the timer
+        clearInterval(timeInterval);
+        // Call the `displayMessage()` function
+        displayMessage();
+      }
+    }, 1000);
+  }
