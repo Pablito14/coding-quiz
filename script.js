@@ -15,6 +15,7 @@ var a5 = "if/else statement"
 
 var questions = [q1, q2, q3, q4, q5];
 var answers = [a1, a2, a3, a4, a5];
+var score;
 
 var startBtn = document.querySelector("#startBtn");
 var mainDiv = document.querySelector("#mainDiv");
@@ -26,9 +27,14 @@ function startBtnHandler(){
     
     for(let i = 0; i < questions.length; i++){
         var question = document.createElement("h1");
-        // var answers = document.createElement("div");
         question.textContent = questions[i];
-        mainDiv.appendChild(question);
+        mainDiv.append(question);
+
+        for(j = 0; j < answers.length; j++){
+            var answerEl = document.createElement("p");
+            answerEl.textContent = answers[j];
+            mainDiv.append(answerEl);
+        }
     }
 
     countdown();
@@ -59,4 +65,8 @@ function countdown() {
         displayMessage();
       }
     }, 1000);
+  }
+
+  function displayMessage(){
+      //todo: create a mesage that will say if won or loss with score
   }

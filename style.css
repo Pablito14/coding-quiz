@@ -20,5 +20,8 @@ header {
 
 main > form {
     text-align: center;
-    
+}
+
+#mainDiv {
+    margin: auto;
 }
